@@ -28,23 +28,6 @@ yatzy.checkOccurance = function (d1, d2, d3, d4, d5, numberToCheck) {
   } else console.log("Please select a number with-in range from one to six");
 };
 
-//chance() adds up all the faces of die, regardless of their face number.
-Yatzy.chance = function (d1, d2, d3, d4, d5) {
-  var total = 0;
-  const values = [d1, d2, d3, d4, d5];
-
-  total = values.reduce((partialSum, a) => partialSum + a, 0);
-  return total;
-};
-
-// yatzy() returns top score 50, if all the die have exact same face.
-Yatzy.yatzy = function () {
-  var counts = calculateCount(d1, d2, d3, d4, d5);
-
-  for (i = 0; i != 6; i++) if (counts[i] == 5) return 50;
-  return 0;
-};
-
 // score_pair() add up pair of highest value of top face die.
 Yatzy.score_pair = function (d1, d2, d3, d4, d5) {
   var counts = calculateCount(d1, d2, d3, d4, d5);
@@ -65,19 +48,20 @@ Yatzy.two_pair = function (d1, d2, d3, d4, d5) {
   if (n == 2) return score * 2;
   else return 0;
 };
-// four_of_a_kind() add up fours die with same top face.
-Yatzy.four_of_a_kind = function (d1, d2, d3, d4, d5) {
-  var counts = calculateCount(d1, d2, d3, d4, d5);
-
-  for (i = 0; i < 6; i++) if (counts[i] >= 4) return (i + 1) * 4;
-  return 0;
-};
 
 // three_of_a_kind() add up three die with same top face.
 Yatzy.three_of_a_kind = function (d1, d2, d3, d4, d5) {
   var counts = calculateCount(d1, d2, d3, d4, d5);
 
   for (i = 0; i < 6; i++) if (counts[i] >= 3) return (i + 1) * 3;
+  return 0;
+};
+
+// four_of_a_kind() add up fours die with same top face.
+Yatzy.four_of_a_kind = function (d1, d2, d3, d4, d5) {
+  var counts = calculateCount(d1, d2, d3, d4, d5);
+
+  for (i = 0; i < 6; i++) if (counts[i] >= 4) return (i + 1) * 4;
   return 0;
 };
 
@@ -124,6 +108,23 @@ Yatzy.fullHouse = function (d1, d2, d3, d4, d5) {
 
   if (_2 && _3) return _2_at * 2 + _3_at * 3;
   else return 0;
+};
+
+//chance() adds up all the faces of die, regardless of their face number.
+Yatzy.chance = function (d1, d2, d3, d4, d5) {
+  var total = 0;
+  const values = [d1, d2, d3, d4, d5];
+
+  total = values.reduce((partialSum, a) => partialSum + a, 0);
+  return total;
+};
+
+// yatzy() returns top score 50, if all the die have exact same face.
+Yatzy.yatzy = function () {
+  var counts = calculateCount(d1, d2, d3, d4, d5);
+
+  for (i = 0; i != 6; i++) if (counts[i] == 5) return 50;
+  return 0;
 };
 
 export default yatzy;
