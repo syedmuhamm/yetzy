@@ -1,10 +1,10 @@
-var Yatzy = function (d1, d2, d3, d4, _5) {
-  this.dice = [];
-  this.dice[0] = d1;
-  this.dice[1] = d2;
-  this.dice[2] = d3;
-  this.dice[3] = d4;
-  this.dice[4] = _5;
+var Yatzy = function (d1, d2, d3, d4, d5) {
+  dice = [];
+  dice[0] = d1;
+  dice[1] = d2;
+  dice[2] = d3;
+  dice[3] = d4;
+  dice[4] = d5;
 };
 
 // keeping track of count, for each occurance of every value of dice
@@ -28,6 +28,7 @@ yatzy.checkOccurance = function (d1, d2, d3, d4, d5, numberToCheck) {
   } else console.log("Please select a number with-in range from one to six");
 };
 
+//chance() adds up all the faces of die, regardless of their face number.
 Yatzy.chance = function (d1, d2, d3, d4, d5) {
   var total = 0;
   const values = [d1, d2, d3, d4, d5];
@@ -36,6 +37,7 @@ Yatzy.chance = function (d1, d2, d3, d4, d5) {
   return total;
 };
 
+// yatzy() returns top score 50, if all the die have exact same face.
 Yatzy.yatzy = function () {
   var counts = calculateCount(d1, d2, d3, d4, d5);
 
@@ -43,6 +45,7 @@ Yatzy.yatzy = function () {
   return 0;
 };
 
+// score_pair() add up pair of highest value of top face die.
 Yatzy.score_pair = function (d1, d2, d3, d4, d5) {
   var counts = calculateCount(d1, d2, d3, d4, d5);
 
@@ -50,6 +53,7 @@ Yatzy.score_pair = function (d1, d2, d3, d4, d5) {
   return 0;
 };
 
+// two_pair() adds up, sum of two pairs of top face die.
 Yatzy.two_pair = function (d1, d2, d3, d4, d5) {
   var counts = calculateCount(d1, d2, d3, d4, d5);
 
@@ -61,7 +65,7 @@ Yatzy.two_pair = function (d1, d2, d3, d4, d5) {
   if (n == 2) return score * 2;
   else return 0;
 };
-
+// four_of_a_kind() add up fours die with same top face.
 Yatzy.four_of_a_kind = function (d1, d2, d3, d4, d5) {
   var counts = calculateCount(d1, d2, d3, d4, d5);
 
@@ -69,6 +73,7 @@ Yatzy.four_of_a_kind = function (d1, d2, d3, d4, d5) {
   return 0;
 };
 
+// three_of_a_kind() add up three die with same top face.
 Yatzy.three_of_a_kind = function (d1, d2, d3, d4, d5) {
   var counts = calculateCount(d1, d2, d3, d4, d5);
 
@@ -76,6 +81,7 @@ Yatzy.three_of_a_kind = function (d1, d2, d3, d4, d5) {
   return 0;
 };
 
+// small_straight() adds up all the die, if they have one-five sequence.
 Yatzy.smallStraight = function (d1, d2, d3, d4, d5) {
   var counts = calculateCount(d1, d2, d3, d4, d5);
 
@@ -85,6 +91,7 @@ Yatzy.smallStraight = function (d1, d2, d3, d4, d5) {
   return 0;
 };
 
+// large_straight() adds up all the die, if they have two-six sequence.
 Yatzy.largeStraight = function (d1, d2, d3, d4, d5) {
   var counts = calculateCount(d1, d2, d3, d4, d5);
 
@@ -94,6 +101,7 @@ Yatzy.largeStraight = function (d1, d2, d3, d4, d5) {
   return 0;
 };
 
+// full_house() add up all the die, if two are same faced, and three are same faced die.
 Yatzy.fullHouse = function (d1, d2, d3, d4, d5) {
   var _2 = false;
   var i;
@@ -118,4 +126,4 @@ Yatzy.fullHouse = function (d1, d2, d3, d4, d5) {
   else return 0;
 };
 
-module.exports = Yatzy;
+export default yatzy;
