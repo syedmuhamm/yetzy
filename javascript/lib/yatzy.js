@@ -40,6 +40,8 @@ Yatzy.score_pair = function (d1, d2, d3, d4, d5) {
 Yatzy.two_pair = function (d1, d2, d3, d4, d5) {
   var counts = calculateCount(d1, d2, d3, d4, d5);
 
+  var n = 0;
+  var score = 0;
   for (i = 0; i < 6; i += 1)
     if (counts[6 - i - 1] >= 2) {
       n++;
