@@ -25,16 +25,18 @@ console.log(
   "Score for the repeated occurance of 6's : " +
     yatzy.checkOccurance(6, 2, 3, 4, 5, 6)
 );
-console.log("Score for one pair : " + yatzy.score_pair(6, 2, 3, 4, 5));
-console.log("Score for two pairs : " + yatzy.two_pair(6, 2, 3, 4, 5));
+console.log("Score for one pair : " + yatzy.score_pair(3, 3, 3, 3, 3));
+
+console.log("Score for two pairs : " + yatzy.two_pair(3, 3, 3, 3, 3));
+
 console.log(
-  "Score for three of one kind : " + yatzy.three_of_a_kind(6, 2, 3, 4, 5)
+  "Score for three of one kind : " + yatzy.three_of_a_kind(3, 3, 3, 3, 3)
 );
 console.log(
-  "Score for four of one kind : " + yatzy.four_of_a_kind(6, 2, 3, 4, 5)
+  "Score for four of one kind : " + yatzy.four_of_a_kind(3, 3, 3, 3, 3)
 );
 console.log(
-  "Score for low-end straight : " + yatzy.small_straight(6, 2, 3, 4, 5)
+  "Score for low-end straight : " + yatzy.small_straight(1, 2, 3, 4, 5)
 );
 console.log(
   "Score for high-end straight : " + yatzy.large_straight(6, 2, 3, 4, 5)
@@ -45,4 +47,4 @@ console.log(
 console.log(
   "Score from addition of all values : " + yatzy.chance(6, 2, 3, 4, 5)
 );
-console.log("Score for five of a kind : " + yatzy.yatzy(6, 2, 3, 4, 5));
+console.log("Score for five of a kind : " + yatzy.yatzy(3, 3, 3, 3, 3));
